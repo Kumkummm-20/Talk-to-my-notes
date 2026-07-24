@@ -1,0 +1,78 @@
+[
+  {
+    "question": "What is encapsulation in OOPs?",
+    "ground_truth_source": "oops extracted text.txt",
+    "ground_truth_keyword": "Encapsulation"
+  },
+  {
+    "question": "What is abstraction in OOPs?",
+    "ground_truth_source": "oops extracted text.txt",
+    "ground_truth_keyword": "Abstraction"
+  },
+  {
+    "question": "What is inheritance in OOPs?",
+    "ground_truth_source": "oops extracted text.txt",
+    "ground_truth_keyword": "Inheritance"
+  },
+  {
+    "question": "What are access modifiers like public, private, protected?",
+    "ground_truth_source": "oops extracted text.txt",
+    "ground_truth_keyword": "Protected"
+  },
+  {
+    "question": "What is a primary key in SQL?",
+    "ground_truth_source": "DBMS_Full_Notes.pdf",
+    "ground_truth_keyword": "uniquely identify"
+  },
+  {
+    "question": "What is a foreign key in SQL?",
+    "ground_truth_source": "DBMS_Full_Notes.pdf",
+    "ground_truth_keyword": "Referencing"
+  },
+  {
+    "question": "What is a tuple in a database table?",
+    "ground_truth_source": "DBMS_Full_Notes.pdf",
+    "ground_truth_keyword": "Tuple"
+  },
+  {
+    "question": "What is the ANSI SQL UNIQUE constraint?",
+    "ground_truth_source": "DBMS_Full_Notes.pdf",
+    "ground_truth_keyword": "DEFAULT"
+  },
+  {
+    "question": "How do you use aliases in MySQL?",
+    "ground_truth_source": "DBMS_Full_Notes.pdf",
+    "ground_truth_keyword": "Alias"
+  },
+  {
+    "question": "What does git commit do?",
+    "ground_truth_source": "Git Notes.pdf",
+    "ground_truth_keyword": "commit"
+  },
+  {
+    "question": "What is the difference between git merge and git rebase?",
+    "ground_truth_source": "Git Notes.pdf",
+    "ground_truth_keyword": "rebase"
+  },
+  {
+    "question": "What does git push --force do?",
+    "ground_truth_source": "Git Notes.pdf",
+    "ground_truth_keyword": "force"
+  },
+  {
+    "question": "What is a git branch?",
+    "ground_truth_source": "Git Notes.pdf",
+    "ground_truth_keyword": "branch"
+  },
+ 
+  {
+    "question": "What is overfitting in machine learning?",
+    "ground_truth_source": "Machine Learning CheatSheet.pdf",
+    "ground_truth_keyword": "overfitting"
+  },
+  {
+    "question": "What is the difference between supervised and unsupervised learning?",
+    "ground_truth_source": "Machine Learning CheatSheet.pdf",
+    "ground_truth_keyword": "supervised"
+  }
+]

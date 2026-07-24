@@ -1,0 +1,113 @@
+OOPS (Object-Oriented Programming)
+
+Definition:
+
+Object-oriented programming is a programming paradigm that organizes software design around objects rather than functions and logic.
+
+Key features of OOP
+Objects represent real-world entities.
+Objects have both data and behavior.
+Object
+
+An object consists of:
+
+State — represented by attributes or variables.
+Behavior — represented by methods or functions.
+Example
+Object → Student
+State: name, roll number, marks.
+Behavior: study, attend class.
+Characteristics of OOP
+Encapsulation
+Encapsulation is the process of combining data and methods into a single unit.
+Data and functions are wrapped together.
+
+Example:
+
+class Student {
+    int rollNo;
+    void display();
+}
+
+Inheritance
+Inheritance allows one class to inherit properties from another class.
+It promotes code reusability.
+Polymorphism
+Polymorphism means "many forms".
+It allows the same function or method to behave differently in different situations.
+
+Abstraction
+
+Abstraction is the process of hiding implementation details and showing only the essential features of an object. It helps reduce complexity and improves security.
+
+Example:
+
+class Vehicle {
+public:
+    virtual void start() = 0;   // Pure virtual function
+};
+
+class Car : public Vehicle {
+public:
+    void start() {
+        cout << "Car started";
+    }
+};
+
+Real-life example: While driving a car, we use the steering wheel and pedals without knowing how the engine works internally.
+
+Inheritance
+
+Inheritance allows one class to acquire the properties and behaviors of another class. It promotes code reusability and reduces redundancy.
+
+Example:
+
+class Animal {
+public:
+    void eat() {
+        cout << "Eating";
+    }
+};
+
+class Dog : public Animal {
+public:
+    void bark() {
+        cout << "Barking";
+    }
+};
+
+Types of inheritance:
+
+Single inheritance
+Multiple inheritance
+Multilevel inheritance
+Hierarchical inheritance
+Hybrid inheritance
+
+Message Passing
+
+Objects communicate with each other by sending messages. One object can request another object to perform a specific action.
+
+Example:
+
+student.display();
+
+Here, the object student sends the message display().
+
+Dynamic Binding
+
+Dynamic binding means that the method to be executed is determined at runtime rather than compile time.
+
+Example:
+
+Animal* a = new Dog();
+a->sound();
+
+The appropriate method is selected when the program runs.
+
+Advantages of OOP
+Improves code reusability.
+Provides better security through data hiding.
+Makes programs easier to maintain.
+Simplifies debugging and testing.
+Helps model real-world problems efficiently.
