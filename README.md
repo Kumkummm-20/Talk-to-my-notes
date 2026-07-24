@@ -1,3 +1,72 @@
+# Talk to My Notes
+
+A RAG (Retrieval-Augmented Generation) system built over my own college notes — OOPs, DBMS, SQL, Git, HTML, and Machine Learning. Beyond basic question-answering, this project focuses on two things most RAG demos skip: measuring whether retrieval is actually working, and checking whether generated answers are actually grounded in the source material.
+
+Notes are indexed at build time (chunked, embedded, and stored in a vector index) rather than uploaded through the interface — this is a personal assistant over a fixed set of notes, not a multi-user upload tool.
+
+**Live demo:** *(link once deployed)*
+**Source code:** *(GitHub link)*
+
+## Architecture
+
+A query is embedded and matched against indexed note chunks using FAISS. The top matches are passed to an LLM to generate an answer, which is then checked by a separate model call for grounding before being shown to the user. The same retriever also feeds a labeled evaluation set used to measure retrieval quality independently of generation.
+
+![Architecture](assets/architecture.png)
+
+## Why this project is different from a basic RAG demo
+
+Most RAG tutorials stop at "it retrieves something and generates an answer." Two problems with that: you have no way to know if retrieval is actually finding the right information, and you have no way to catch the model quietly answering from its own training data instead of your notes. This project addresses both:
+
+- A retrieval evaluation harness that measures Hit Rate@k and MRR against a labeled question set
+- A hallucination guard that runs a second, independent model call to verify every generated answer is supported by the retrieved context
+
+## Evaluation results
+
+Evaluated on a 15-question labeled set spanning all six note topics. A retrieved chunk counts as correct if it comes from the right source file and contains a distinctive keyword tied to that question.
+
+| Config | Hit Rate@k | MRR |
+|---|---|---|
+| chunk_size=120, overlap=20, k=5 | 0.933 | 0.822 |
+| chunk_size=120, overlap=20, k=10 | 0.933 | 0.822 |
+
+Raising k from 5 to 10 didn't change either metric. The one remaining miss (a question about access modifiers) isn't a ranking problem — the correct chunk doesn't surface even in the top 10 — which points to a mismatch between how the question is phrased and how the notes describe that concept, not a shortage of candidates. Given identical accuracy, k=5 was kept as the final setting since it sends less context per query, which means lower latency and lower token cost.
+
+## Limitations
+
+**OCR on handwritten notes.** Several source PDFs are handwritten and had to go through OCR (Tesseract) rather than direct text extraction. Output quality varied a lot by handwriting clarity — one short file came out unusable and was manually retyped as a clean text file. A longer handwritten file was left out of the evaluation set rather than retyped by hand, and is flagged here as an open item. A vision-based transcription approach would likely handle this better than Tesseract for handwriting specifically.
+
+**Hallucination guard is LLM-as-judge, not a trained classifier.** Using a second model call to check grounding is simple to implement and works well in practice, but it costs an extra API call per answer. A smaller, fine-tuned classifier would be cheaper to run at scale, though it would need labeled training data to build.
+
+**Evaluation uses keyword matching, not exact chunk IDs.** Correctness in the eval harness is decided by checking source file + a distinctive keyword, rather than manually tagging exact ground-truth chunk IDs. This is precise enough to compare configurations against each other, which is what the harness is actually for, but it's an approximation worth being upfront about.
+
+## Stack
+
+| Component | Tool | Reason |
+|---|---|---|
+| Embeddings | sentence-transformers (MiniLM) | Small, fast, runs on CPU |
+| Vector search | FAISS (IndexFlatIP) | Exact search, no approximation needed at this scale |
+| Generation + grounding check | Groq API (Llama 3.3 70B) | Fast inference, free tier |
+| OCR | Tesseract + pdf2image | Needed for handwritten note sources |
+| Interface | Streamlit | Fast to build a usable UI without frontend code |
+| Hosting | Streamlit Community Cloud | Free, deploys directly from GitHub |
+
+## Setup
+
+```bash
+git clone <your-repo-url>
+cd rag-eval-guard
+python -m venv venv
+
+# Windows
+venv\Scripts\activate
+# macOS/Linux
+source venv/bin/activate
+
+pip install -r requirements.txt
+```
+
+Get a Groq API key at https://console.groq.com/keys, then copy `.env.example` to `.env` and add it.
+
 If you're on Windows and working with handwritten/scanned PDFs, you'll also need Tesseract OCR (https://github.com/UB-Mannheim/tesseract/wiki) and Poppler (https://github.com/oschwartz10612/poppler-windows/releases) installed and added to your system PATH.
 
 ## Pipeline
