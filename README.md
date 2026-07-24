@@ -10,30 +10,6 @@ Notes are indexed at build time (chunked, embedded, and stored in a vector index
 ## Architecture
 
 A query is embedded and matched against indexed note chunks using FAISS. The top matches are passed to an LLM to generate an answer, which is then checked by a separate model call for grounding before being shown to the user. The same retriever also feeds a labeled evaluation set used to measure retrieval quality independently of generation.
-1. **Simple Architecture:**
-   
-   Query → Retriever → Generator → Guard → Answer
-
-2. **Detailed Architecture**
-PDFs
- ↓
-Chunking
- ↓
-Embeddings
- ↓
-FAISS
-
-          Query
-            ↓
-     Query Embedding
-            ↓
-        Retriever
-        ↙       ↘
-  Evaluation   Generator
-                 ↓
-               Guard
-                 ↓
-               Answer
 
 ![Architecture](assests/architecture.jpg)
 
@@ -60,8 +36,6 @@ Raising k from 5 to 10 didn't change either metric. The one remaining miss (a qu
 **OCR on handwritten notes.** Several source PDFs are handwritten and had to go through OCR (Tesseract) rather than direct text extraction. Output quality varied a lot by handwriting clarity — one short file came out unusable and was manually retyped as a clean text file. A longer handwritten file was left out of the evaluation set rather than retyped by hand, and is flagged here as an open item. A vision-based transcription approach would likely handle this better than Tesseract for handwriting specifically.
 
 **Hallucination guard is LLM-as-judge, not a trained classifier.** Using a second model call to check grounding is simple to implement and works well in practice, but it costs an extra API call per answer. A smaller, fine-tuned classifier would be cheaper to run at scale, though it would need labeled training data to build.
-
-**Evaluation uses keyword matching, not exact chunk IDs.** Correctness in the eval harness is decided by checking source file + a distinctive keyword, rather than manually tagging exact ground-truth chunk IDs. This is precise enough to compare configurations against each other, which is what the harness is actually for, but it's an approximation worth being upfront about.
 
 ## Stack
 
