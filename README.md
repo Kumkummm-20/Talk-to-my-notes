@@ -10,6 +10,30 @@ Notes are indexed at build time (chunked, embedded, and stored in a vector index
 ## Architecture
 
 A query is embedded and matched against indexed note chunks using FAISS. The top matches are passed to an LLM to generate an answer, which is then checked by a separate model call for grounding before being shown to the user. The same retriever also feeds a labeled evaluation set used to measure retrieval quality independently of generation.
+1. **Simple Architecture:**
+   
+   Query → Retriever → Generator → Guard → Answer
+
+2. **Detailed Architecture**
+PDFs
+ ↓
+Chunking
+ ↓
+Embeddings
+ ↓
+FAISS
+
+          Query
+            ↓
+     Query Embedding
+            ↓
+        Retriever
+        ↙       ↘
+  Evaluation   Generator
+                 ↓
+               Guard
+                 ↓
+               Answer
 
 ![Architecture](assests/architecture.jpg)
 
