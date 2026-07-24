@@ -63,7 +63,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-Get a Groq API key at https://console.groq.com/keys, then copy `.env.example` to `.env` and add it.
+Get a Groq API key at https://console.groq.com/keys, then copy to `.env` and add it.
 
 If you're on Windows and working with handwritten/scanned PDFs, you'll also need Tesseract OCR (https://github.com/UB-Mannheim/tesseract/wiki) and Poppler (https://github.com/oschwartz10612/poppler-windows/releases) installed and added to your system PATH.
 
