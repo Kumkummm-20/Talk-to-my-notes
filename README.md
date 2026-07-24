@@ -4,14 +4,14 @@ A RAG (Retrieval-Augmented Generation) system built over my own college notes â€
 
 Notes are indexed at build time (chunked, embedded, and stored in a vector index) rather than uploaded through the interface â€” this is a personal assistant over a fixed set of notes, not a multi-user upload tool.
 
-**Live demo:** *(link once deployed)*
+**Live demo:** *[(deployed link)](https://talk-to-my-notes-rag.streamlit.app/)*
 **Source code:** *[(GitHub link)](https://github.com/Kumkummm-20/Talk-to-my-notes)*
 
 ## Architecture
 
 A query is embedded and matched against indexed note chunks using FAISS. The top matches are passed to an LLM to generate an answer, which is then checked by a separate model call for grounding before being shown to the user. The same retriever also feeds a labeled evaluation set used to measure retrieval quality independently of generation.
 
-![Architecture](assests/architecture.png)
+![Architecture](assests/architecture.jpg)
 
 ## Why this project is different from a basic RAG demo
 
