@@ -1,78 +1,56 @@
 [
-  {
-    "question": "What is encapsulation in OOPs?",
-    "ground_truth_source": "oops extracted text.txt",
-    "ground_truth_keyword": "Encapsulation"
-  },
-  {
-    "question": "What is abstraction in OOPs?",
-    "ground_truth_source": "oops extracted text.txt",
-    "ground_truth_keyword": "Abstraction"
-  },
-  {
-    "question": "What is inheritance in OOPs?",
-    "ground_truth_source": "oops extracted text.txt",
-    "ground_truth_keyword": "Inheritance"
-  },
-  {
-    "question": "What are access modifiers like public, private, protected?",
-    "ground_truth_source": "oops extracted text.txt",
-    "ground_truth_keyword": "Protected"
-  },
-  {
-    "question": "What is a primary key in SQL?",
-    "ground_truth_source": "DBMS_Full_Notes.pdf",
-    "ground_truth_keyword": "uniquely identify"
-  },
-  {
-    "question": "What is a foreign key in SQL?",
-    "ground_truth_source": "DBMS_Full_Notes.pdf",
-    "ground_truth_keyword": "Referencing"
-  },
-  {
-    "question": "What is a tuple in a database table?",
-    "ground_truth_source": "DBMS_Full_Notes.pdf",
-    "ground_truth_keyword": "Tuple"
-  },
-  {
-    "question": "What is the ANSI SQL UNIQUE constraint?",
-    "ground_truth_source": "DBMS_Full_Notes.pdf",
-    "ground_truth_keyword": "DEFAULT"
-  },
-  {
-    "question": "How do you use aliases in MySQL?",
-    "ground_truth_source": "DBMS_Full_Notes.pdf",
-    "ground_truth_keyword": "Alias"
-  },
-  {
-    "question": "What does git commit do?",
-    "ground_truth_source": "Git Notes.pdf",
-    "ground_truth_keyword": "commit"
-  },
-  {
-    "question": "What is the difference between git merge and git rebase?",
-    "ground_truth_source": "Git Notes.pdf",
-    "ground_truth_keyword": "rebase"
-  },
-  {
-    "question": "What does git push --force do?",
-    "ground_truth_source": "Git Notes.pdf",
-    "ground_truth_keyword": "force"
-  },
-  {
-    "question": "What is a git branch?",
-    "ground_truth_source": "Git Notes.pdf",
-    "ground_truth_keyword": "branch"
-  },
- 
-  {
-    "question": "What is overfitting in machine learning?",
-    "ground_truth_source": "Machine Learning CheatSheet.pdf",
-    "ground_truth_keyword": "overfitting"
-  },
-  {
-    "question": "What is the difference between supervised and unsupervised learning?",
-    "ground_truth_source": "Machine Learning CheatSheet.pdf",
-    "ground_truth_keyword": "supervised"
-  }
+  {"question": "What is the difference between data and information?", "ground_truth_source": "DBMS_Full_Notes.pdf", "ground_truth_keyword": "Data vs Information"},
+  {"question": "What are the two types of data?", "ground_truth_source": "DBMS_Full_Notes.pdf", "ground_truth_keyword": "Quantitative"},
+  {"question": "What is a DBMS?", "ground_truth_source": "DBMS_Full_Notes.pdf", "ground_truth_keyword": "database-management system"},
+  {"question": "What are the disadvantages of file-processing systems?", "ground_truth_source": "DBMS_Full_Notes.pdf", "ground_truth_keyword": "Redundancy and inconsistency"},
+  {"question": "What is the three schema architecture in DBMS?", "ground_truth_source": "DBMS_Full_Notes.pdf", "ground_truth_keyword": "Three Schema Architecture"},
+  {"question": "What is the physical level of abstraction in DBMS?", "ground_truth_source": "DBMS_Full_Notes.pdf", "ground_truth_keyword": "Physical level"},
+  {"question": "What is a database schema?", "ground_truth_source": "DBMS_Full_Notes.pdf", "ground_truth_keyword": "DB schema"},
+  {"question": "What is the difference between DDL and DML?", "ground_truth_source": "DBMS_Full_Notes.pdf", "ground_truth_keyword": "Data definition language"},
+  {"question": "What is the role of a Database Administrator?", "ground_truth_source": "DBMS_Full_Notes.pdf", "ground_truth_keyword": "Database Administrator"},
+  {"question": "What is a weak entity in the ER model?", "ground_truth_source": "DBMS_Full_Notes.pdf", "ground_truth_keyword": "Weak Entity"},
+  {"question": "What are the types of attributes in the ER model?", "ground_truth_source": "DBMS_Full_Notes.pdf", "ground_truth_keyword": "Types of Attributes"},
+  {"question": "What is mapping cardinality in a relationship?", "ground_truth_source": "DBMS_Full_Notes.pdf", "ground_truth_keyword": "Mapping Cardinality"},
+  {"question": "What is specialisation in the ER model?", "ground_truth_source": "DBMS_Full_Notes.pdf", "ground_truth_keyword": "Specialisation"},
+  {"question": "What is a candidate key?", "ground_truth_source": "DBMS_Full_Notes.pdf", "ground_truth_keyword": "Candidate Key"},
+  {"question": "What is a surrogate key?", "ground_truth_source": "DBMS_Full_Notes.pdf", "ground_truth_keyword": "Surrogate Key"},
+  {"question": "What is normalisation and why is it used?", "ground_truth_source": "DBMS_Full_Notes.pdf", "ground_truth_keyword": "Normalisation"},
+  {"question": "What is BCNF?", "ground_truth_source": "DBMS_Full_Notes.pdf", "ground_truth_keyword": "BCNF"},
+  {"question": "What are the ACID properties of a transaction?", "ground_truth_source": "DBMS_Full_Notes.pdf", "ground_truth_keyword": "ACID Properties"},
+  {"question": "What are the different states of a transaction?", "ground_truth_source": "DBMS_Full_Notes.pdf", "ground_truth_keyword": "Transaction states"},
+  {"question": "What is indexing in DBMS?", "ground_truth_source": "DBMS_Full_Notes.pdf", "ground_truth_keyword": "Indexing is used"},
+
+  {"question": "What is encapsulation in OOPs?", "ground_truth_source": "oops extracted text.txt", "ground_truth_keyword": "Encapsulation"},
+  {"question": "What is abstraction in OOPs?", "ground_truth_source": "oops extracted text.txt", "ground_truth_keyword": "Abstraction"},
+  {"question": "What is inheritance in OOPs?", "ground_truth_source": "oops extracted text.txt", "ground_truth_keyword": "Inheritance"},
+  {"question": "What is a pure virtual function used for in abstraction?", "ground_truth_source": "oops extracted text.txt", "ground_truth_keyword": "public"},
+  {"question": "What is polymorphism in OOPs?", "ground_truth_source": "oops extracted text.txt", "ground_truth_keyword": "Polymorphism"},
+  {"question": "What is dynamic binding in OOPs?", "ground_truth_source": "oops extracted text.txt", "ground_truth_keyword": "Dynamic Binding"},
+
+  {"question": "What does git commit do?", "ground_truth_source": "Git Notes.pdf", "ground_truth_keyword": "commit"},
+  {"question": "What is the difference between git merge and git rebase?", "ground_truth_source": "Git Notes.pdf", "ground_truth_keyword": "rebase"},
+  {"question": "What does git push --force do?", "ground_truth_source": "Git Notes.pdf", "ground_truth_keyword": "force"},
+  {"question": "What is a git branch?", "ground_truth_source": "Git Notes.pdf", "ground_truth_keyword": "branch"},
+  {"question": "What is git clone used for?", "ground_truth_source": "Git Notes.pdf", "ground_truth_keyword": "clone"},
+  {"question": "What is git stash used for?", "ground_truth_source": "Git Notes.pdf", "ground_truth_keyword": "stash"},
+  {"question": "What is a merge conflict in git?", "ground_truth_source": "Git Notes.pdf", "ground_truth_keyword": "conflict"},
+  {"question": "What does git checkout do?", "ground_truth_source": "Git Notes.pdf", "ground_truth_keyword": "checkout"},
+
+  {"question": "What is an INNER JOIN in SQL?", "ground_truth_source": "Sql basics Cheat Sheet.pdf", "ground_truth_keyword": "INNER JOIN"},
+  {"question": "What is a LEFT JOIN in SQL?", "ground_truth_source": "Sql basics Cheat Sheet.pdf", "ground_truth_keyword": "LEFT JOIN"},
+  {"question": "What is a FULL JOIN in SQL?", "ground_truth_source": "Sql basics Cheat Sheet.pdf", "ground_truth_keyword": "FULL JOIN"},
+  {"question": "What is a CROSS JOIN in SQL?", "ground_truth_source": "Sql basics Cheat Sheet.pdf", "ground_truth_keyword": "CROSS JOIN"},
+  {"question": "What is a NATURAL JOIN in SQL?", "ground_truth_source": "Sql basics Cheat Sheet.pdf", "ground_truth_keyword": "NATURAL JOIN"},
+  {"question": "What does GROUP BY do in SQL?", "ground_truth_source": "Sql basics Cheat Sheet.pdf", "ground_truth_keyword": "GROUP BY"},
+  {"question": "What is the difference between UNION and UNION ALL?", "ground_truth_source": "Sql basics Cheat Sheet.pdf", "ground_truth_keyword": "UNION ALL"},
+  {"question": "What is a correlated subquery in SQL?", "ground_truth_source": "Sql basics Cheat Sheet.pdf", "ground_truth_keyword": "correlated subquery"},
+
+  {"question": "What is overfitting in machine learning?", "ground_truth_source": "Machine Learning CheatSheet.pdf", "ground_truth_keyword": "Overfitting"},
+  {"question": "What is the difference between supervised and unsupervised learning?", "ground_truth_source": "Machine Learning CheatSheet.pdf", "ground_truth_keyword": "Supervised learning"},
+  {"question": "What is the bias-variance tradeoff?", "ground_truth_source": "Machine Learning CheatSheet.pdf", "ground_truth_keyword": "Bias-Variance"},
+  {"question": "What is gradient descent?", "ground_truth_source": "Machine Learning CheatSheet.pdf", "ground_truth_keyword": "Gradient Descent"},
+  {"question": "What is the difference between Lasso and Ridge regression?", "ground_truth_source": "Machine Learning CheatSheet.pdf", "ground_truth_keyword": "Ridge Regression"},
+  {"question": "What is logistic regression used for?", "ground_truth_source": "Machine Learning CheatSheet.pdf", "ground_truth_keyword": "binary classification"},
+  {"question": "What is K-Nearest Neighbors (KNN)?", "ground_truth_source": "Machine Learning CheatSheet.pdf", "ground_truth_keyword": "K-Nearest Neighbors"},
+  {"question": "What is Random Forest?", "ground_truth_source": "Machine Learning CheatSheet.pdf", "ground_truth_keyword": "Random Forest"}
 ]
