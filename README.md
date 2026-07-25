@@ -22,14 +22,20 @@ Most RAG tutorials stop at "it retrieves something and generates an answer." Two
 
 ## Evaluation results
 
-Evaluated on a 15-question labeled set spanning all six note topics. A retrieved chunk counts as correct if it comes from the right source file and contains a distinctive keyword tied to that question.
+Evaluated on a 50-question labeled set spanning all six note topics (DBMS, OOPs, Git, SQL, HTML, Machine Learning).
 
 | Config | Hit Rate@k | MRR |
 |---|---|---|
-| chunk_size=120, overlap=20, k=5 | 0.933 | 0.822 |
-| chunk_size=120, overlap=20, k=10 | 0.933 | 0.822 |
+| chunk_size=120, overlap=20, k=5 | 0.933 (n=15) | 0.822 (n=15) |
+| chunk_size=120, overlap=20, k=10 | 0.96 (n=50) | 0.763 (n=50) |
 
-Raising k from 5 to 10 didn't change either metric. The one remaining miss (a question about access modifiers) isn't a ranking problem — the correct chunk doesn't surface even in the top 10 — which points to a mismatch between how the question is phrased and how the notes describe that concept, not a shortage of candidates. Given identical accuracy, k=5 was kept as the final setting since it sends less context per query, which means lower latency and lower token cost.
+Two questions missed retrieval entirely out of 50.
+
+One miss (INNER JOIN) was diagnosed: the correct chunk contains the term "INNER JOIN," but the chunk itself is dominated by unrelated sample-data tables, with the JOIN explanation only starting near the chunk boundary. This is a chunking granularity issue rather than a keyword or ranking problem — the chunk's embedding ends up representing the sample data more than the JOIN concept. A fix would be chunking on document section boundaries rather than fixed word counts.
+
+A second miss (a DBMS abstraction-levels question) wasn't further diagnosed — the same chunking-boundary or phrasing-mismatch issue is the likely cause, but wasn't confirmed.
+
+**Notable pattern:** SQL join-type questions (LEFT, RIGHT, FULL, CROSS, NATURAL JOIN) consistently ranked between 5-8, well below the average rank of 1-2 seen elsewhere. This wasn't a miss, but a clustering effect — the source document describes all join types in adjacent, similarly-worded sections ("returns rows that have matching values...", "returns all rows from..."), which makes their embeddings harder for the retriever to tell apart. A natural next step would be splitting join-type explanations into more distinct chunks, or testing whether a reranking step helps disambiguate near-duplicate embeddings.
 
 ## Limitations
 
